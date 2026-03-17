@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ لحظتنا ❤️</title>
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+background: linear-gradient(-45deg, #ff758c, #ff7eb3, #6a11cb, #2575fc);
+background-size: 400% 400%;
+animation: bg 10s infinite alternate;
+}
+
+/* تدرج متحرك */
+@keyframes bg{
+0%{background-position:0% 50%}
+100%{background-position:100% 50%}
+}
+
+/* عداد الأيام */
+.counter{
+margin-top:20px;
+font-size:20px;
+}
+
+/* الصور */
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
+}
+
+.card{
+margin:15px;
+}
+
+img{
+width:220px;
+border-radius:20px;
+box-shadow:0 0 20px pink;
+}
+
+.caption{
+margin-top:8px;
+font-size:14px;
+color:#fff;
+}
+
+/* نص الرسالة */
+.text{
+width:70%;
+margin:auto;
+line-height:2;
+font-size:18px;
+margin-top:30px;
+border-right:3px solid pink;
+white-space:pre-line;
+overflow:hidden;
+}
+
+/* قلوب متساقطة */
+.heart{
+position:absolute;
+top:-10px;
+color:white;
+animation:fall 5s linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-10px)}
+100%{transform:translateY(110vh)}
+}
+
+/* زر الموسيقى */
+button{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<audio id="music" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+<button onclick="toggleMusic()">كتم / تشغيل الموسيقى 🎵</button>
+
+<h1>❤️ كل سنة وانتي حياتي ❤️</h1>
+<div class="counter" id="counter"></div>
+
+<div class="gallery">
+<div class="card">
+<img src="https://i.postimg.cc/sg6yjV0F/Snapchat-749361006.jpg">
+<div class="caption">أول صورة لينا سوا ❤️</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/qRZC2VRV/Snapchat-356003686.jpg">
+<div class="caption">أحلى يوم خرجنا فيه ❤️</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/8CmRJ0WX/Snapchat-1834042532.jpg">
+<div class="caption">الضحكة اللي وقعتني في حبك ❤️</div></div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/HsM6zHy8/Snapchat-1756390914-(1).jpg">
+<div class="caption">اجمل انسانه عرفتها</div></div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/50HBtq5g/Snapchat-1561685311-(1).jpg">
+<div class="caption">الضحكة اللي وقعتني في حبك ❤️</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/XqHxZzM5/IMG-20250921-154225.jpg">
+<div class="caption">اسبات ملكيه❤️</div>
+</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/bvSrD65B/IMG-20251010-WA0013.jpg">
+<div class="caption">الضحكة اللي وقعتني في حبك ❤️</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/28j5FjJX/Screenshot-20250709-021433-Instagram-(1).jpg">
+<div class="caption">مواقف ما بتتنسيش</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/PfyXxsxz/IMG-20251212-WA0040.jpg">
+<div class="caption">ايا لهوي علي الشفايف❤️</div>
+</div>
+<div class="card">
+<img src="https://i.postimg.cc/QxV3dFvD/IMG-20250406-021158-491-(2).jpg">
+<div class="caption">يا خراشي علي الادب</div>
+
+</div>
+
+<div class="text" id="text"></div>
+
+<script>
+// عداد الأيام مع بعض
+const startDate = new Date("2025-04-04");
+function updateCounter(){
+const now = new Date();
+const diff = now - startDate;
+const days = Math.floor(diff/(1000*60*60*24));
+document.getElementById("counter").innerHTML =
+"بقالنا مع بعض ❤️ " + days + " يوم";
+}
+setInterval(updateCounter,1000);
+updateCounter();
+
+// قلوب متحركة
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+heart.innerHTML="❤";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove()},5000);
+}
+setInterval(createHeart,200);
+
+// رسالة
+const message = `كل سنة وانتي أجمل وأغلى إنسانة في حياتي ❤️
+
+النهارده مش مجرد عيد ميلاد...
+ده اليوم اللي الدنيا نورت فيه ❤️
+
+4 / 4 / 2025
+أجمل يوم في حياتي...
+
+من وقتها وأنا بقيت شخص تاني
+بقيت بحب الحياة علشان فيها انتي
+
+انتي مش بس حبيبتي...
+انتي روحي وقلبي وكل دنيتي
+
+وعد مني...
+إني أفضل جنبك مهما حصل ❤️`;
+
+let i=0;
+function typeWriter(){
+if(i<message.length){
+document.getElementById("text").innerHTML += message.charAt(i);
+i++;
+setTimeout(typeWriter,40);
+}
+}
+window.onload = () => typeWriter();
+
+// زر تشغيل/كتم الموسيقى
+const music=document.getElementById("music");
+function toggleMusic(){
+music.paused ? music.play() : music.pause();
+}
+</script>
+
+</body>
+</html>
